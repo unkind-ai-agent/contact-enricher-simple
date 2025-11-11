@@ -102,9 +102,10 @@ For each batch of up to 20 records:
 4. **Wait for all enrichers to complete**
 
 5. **Save results to Cloudflare KV:**
-   - Save raw enrichment output with key: `enrich:record:[attio_record_id]`
-   - Track: `[Record N] Saved to Cloudflare KV: enrich:record:[attio_record_id]`
+   - Save raw enrichment output with key: `[attio_record_id]`
+   - Track: `[Record N] Saved to Cloudflare KV: [attio_record_id]`
    - If KV save fails: log error, continue processing, mark as partial failure
+   - Add `enrichment-timestamp` to the output
 
 6. **Save to local JSON:**
    - Progressively update: `enrichment/[YYYYMMDD-HHMMSS]/results.json`
